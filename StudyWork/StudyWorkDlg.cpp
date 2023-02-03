@@ -690,15 +690,19 @@ UINT detectSitting(LPVOID pParam)
 			}
 			if (leftTime >= maxLeftTime) {
 				parent->bSitting = false;
+				/* 警告解除提示（已停用）
 				if (preSit) endThread(preLeftAlertThread);
 				preSit = false;
 				leftAlertThread = AfxBeginThread(leftAlert, parent);
+				*/
 				parent->sitTimeUpdate();
 			}
+			/* 警告解除预提示（已禁用）
 			else if (!preSit && leftTime >= preLeftTime) {
 				preLeftAlertThread = AfxBeginThread(preLeftAlert, parent);
 				preSit = true;
 			}
+			*/
 		}
 		//data::addLog(preSit ? L" preSit: true" : L" preSit: false");
 		//data::addLog(leftCount ? L" leftCount: true" : L" leftCount: false");
